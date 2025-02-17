@@ -1,11 +1,11 @@
 // Switch light/dark theme
 $(function () {
   let $switchBtn = $("#switch-theme"),
-    osDarkscheme = window.matchMedia("(prefers-color-scheme: dark)"),
+    osDarkscheme = window.matchMedia("(prefers-color-scheme: light)"),
     $html = $("html"),
     dataAttr = "data-theme",
     light = "light",
-    dark = "dark";
+    dark = "light";
 
   $switchBtn.on("click", function (e) {
     let theme = "";

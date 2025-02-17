@@ -620,6 +620,7 @@ p.author {
 /* Poll preview background */
 .section-posting .preview .content {
 	background: var(--bg3-color);
+	font-weight: bold;
 }
 
 .postform .content .author {

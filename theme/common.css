@@ -63,7 +63,7 @@ a:hover, a:focus {	color: var(--links-color-hover-focus);	}
 	max-width: none;
 	min-width: 0;
 	margin: 0;
-	padding: 15px 0;
+	padding: 0;
 	border: 0;
 	border-radius: 0;
 	background: none;
@@ -75,32 +75,42 @@ a:hover, a:focus {	color: var(--links-color-hover-focus);	}
 	box-sizing: border-box;
 	width: 95%;
 	max-width: 1170px;
-	margin: auto;
+	margin: 0 auto;
 }
 
-.inventea-wrapper {
+.inventea-wrapper.inventea-content {
 	padding: 15px 20px;
 	border: 2px solid var(--border-color-1);
 	background: var(--bg-web-color);
+	margin-bottom: 0;
 }
 
 .inventea-userbar {
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 100;
 	height: 49px;
 	padding-top: 14px;
+	background: rgba(0, 0, 0, 0.5);
 	border-bottom: 0;
 }
 
 .inventea-header {
 	width: 100%;
 	background: var(--inventea-header);
+	position: relative;
 }
 
 .inventea-dashboard {
 	position: relative;
-	min-height: 240px;
+	min-height: 340px;
 	background: url("./images/dashboard.png") center center no-repeat;
 	background-size: cover;
+	margin-top: 0;
+	padding-top: 0;
 }
 
 .inventea-content {
@@ -116,18 +126,18 @@ a:hover, a:focus {	color: var(--links-color-hover-focus);	}
 
 .inventea-footer-wrapper {
 	display: block;
-	box-shadow: inset 0 20px 30px -20px var(--shadowcolor);
 	width: 100%;
-	margin-top: -25px;
-	border-top: 1px solid var(--border-color-1);
+	margin-top: 0;
+	background: var(--bg-web-color);
 }
 
 .inventea-footer {
 	margin: 42px auto;
 	padding: 0 22px;
-	color: #var(--inventea-footer);
+	color: var(--inventea-footer);
 	line-height: 18px;
 	font-size: 12px;
+	background: var(--bg-web-color);
 }
 
 /**
@@ -152,12 +162,74 @@ a:hover, a:focus {	color: var(--links-color-hover-focus);	}
  * Sticky navigation on scroll provided by Headroom.js:
  * http://wicky.nillia.ms/headroom.js/
  */
-ul.linklist.inventea-user-menu > li {
-	margin-left: 0;
+.inventea-posts-menu {
+    display: none; /* Hide the old menu container */
 }
 
-ul.linklist.inventea-user-menu > li + li {
-	margin-right: 21px;
+/* Update the user menu styling */
+.inventea-user-menu {
+    position: relative;
+    width: 100%;
+}
+
+/* Fix the user menu items */
+ul.linklist.inventea-user-menu > li {
+    float: left;
+    margin-right: 5px;
+    line-height: 21px;
+    padding: 0;
+}
+
+/* Restore rightside items positioning */
+ul.linklist.inventea-user-menu > li.rightside {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+    padding: 0;
+    line-height: 21px;
+}
+
+/* Keep left menu items shifted */
+ul.linklist.inventea-user-menu > li:not(.rightside):first-child {
+    margin-left: 30px;
+}
+
+/* Restore separator for breadcrumbs only */
+.breadcrumbs .crumb:before {
+    content: "/";
+    float: left;
+    margin: 0 6px;
+    color: var(--text-color-2);
+    font-weight: normal;
+}
+
+/* Remove separator for first item */
+.breadcrumbs .crumb:first-child:before {
+    content: none;
+}
+
+/* Keep other separators removed */
+ul.linklist > li:not(.breadcrumbs):before,
+#nav-footer > li.responsive-menu:after {
+    content: none;
+}
+
+/* Adjust the hover effect */
+.inventea-user-menu a {
+    color: #FFFFFF !important;
+    font-size: 12px;
+    line-height: 21px;
+    display: inline-block;
+    padding: 0 10px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.inventea-user-menu a:hover,
+.inventea-user-menu a:focus {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF !important;
+    text-decoration: none;
 }
 
 /* Notifications and PMs counters */
@@ -207,47 +279,42 @@ a.header-avatar span:after {
  * with low screen resolution it's replaced by dropdown menu with activation button
  * located in user menu.
  */
-.inventea-posts-menu,
 .inventea-forum-menu {
-	position: absolute;
-}
-
-.inventea-posts-menu {
-	right: 0;
-}
-
-.inventea-forum-menu {
-	bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
 .inventea-menu {
-	display: block;
-	list-style: none;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .inventea-menu li {
-	float: left;
-	background: none;
+    margin: 0 5px;
 }
 
-/* Space between menu items */
-.inventea-menu li + li {
-	margin-left: 4px;
-}
-
+/* Update the bottom menu buttons */
 .inventea-menu li > a {
-	display: block;
-	padding: 8px 10px;
-	background: #333;
-	background: rgba(0, 0, 0, 0.5);
-	color: #eee;
+    display: inline-block;
+    padding: 8px 16px;
+    background: none;
+    color: #FFFFFF !important;
+    border-radius: 3px;
+    transition: all 0.2s ease;
 }
 
-.inventea-menu li > a:focus,
-.inventea-menu li > a:hover,
-.inventea-menu li > a:active {
-	background: rgba(0, 0, 0, 0.9);
-	text-decoration: none;
+.inventea-menu li > a:hover {
+    background: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
 }
 
 /**
@@ -276,18 +343,7 @@ ul.linklist > li {
 .breadcrumbs .crumb:first-child:before,
 ul.linklist > li:not(.breadcrumbs):before,
 #nav-footer > li.responsive-menu:after {
-	content: "/";
-	float: right;
-	margin: 0 10px;
-	padding: 0;
-	color: #cacaca;
-	font-size: 14px;
-	font-weight: normal;
-}
-
-ul.linklist > li:not(.breadcrumbs):before,
-#nav-footer > li.responsive-menu:after {
-	float: left;
+	content: none;
 }
 
 .breadcrumbs:last-child .crumb:last-child:before,
@@ -322,7 +378,7 @@ ul.linklist li.responsive-menu a.responsive-menu-link {
 
 ul.linklist li.responsive-menu a.responsive-menu-link:before {
 	top: 5px;
-	border-color: var(--border-color-2:);
+	border-color: var(--border-color-2);
 }
 
 ul.linklist li.responsive-menu a.responsive-menu-link:hover:before,
@@ -336,7 +392,8 @@ ul.linklist .small-icon {
 }
 
 ul.linklist .small-icon > a {
-	padding: 0;
+	padding: 0 10px;
+    line-height: 21px;
 }
 
 /**
@@ -466,4 +523,173 @@ fieldset.quick-login input.inputbox {
 
 fieldset dl:hover dt label {
   	color: var(--text-color-3);
+}
+
+/* Make sure the text in the userbar is visible */
+.inventea-userbar a,
+.inventea-userbar .username,
+.inventea-userbar .small-icon span {
+    color: #FFFFFF !important; /* Force white text for better visibility */
+}
+
+/* Adjust hover states for better visibility */
+.inventea-userbar a:hover,
+.inventea-userbar a:focus {
+    color: #e3e3e3 !important;
+    text-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+/* Adjust username dropdown alignment */
+#username_logged_in {
+    line-height: 21px;
+}
+
+.header-profile {
+    line-height: 21px;
+}
+
+/* Breadcrumb styling */
+.breadcrumbs {
+    display: inline-block;
+}
+
+.breadcrumbs .crumb {
+    display: inline-block;
+}
+
+/* Add slashes between items */
+.breadcrumbs .crumb:not(:last-child):after {
+    content: "/";
+    display: inline-block;
+    padding: 0 5px;
+    color: var(--text-color-2);
+    font-weight: normal;
+}
+
+/* Style the links and text */
+.breadcrumbs .crumb a,
+.breadcrumbs .crumb span {
+    display: inline-block;
+    padding: 0 2px;
+}
+
+/* Remove other list separators */
+ul.linklist > li:not(.breadcrumbs):before,
+#nav-footer > li.responsive-menu:after {
+    content: none;
+}
+
+/* Forum header styling */
+.forabg,
+.forumbg {
+    background: #ffb600;  /* Yellow header color */
+    border-radius: 0;
+    margin-bottom: 4px;
+    padding: 5px;
+}
+
+/* Style the header text */
+.forabg ul.topiclist li.header dt,
+.forabg ul.topiclist li.header dd,
+.forumbg ul.topiclist li.header dt,
+.forumbg ul.topiclist li.header dd {
+    font-weight: bold;
+    text-transform: uppercase;  /* Restore uppercase text */
+    color: #FFFFFF;  /* Restore white text */
+}
+
+/* Style the header links */
+.forabg .header a,
+.forumbg .header a {
+    color: #FFFFFF;  /* White text for links */
+    font-weight: bold;
+}
+
+.forabg .header a:hover,
+.forumbg .header a:hover {
+    color: #e3e3e3;  /* Slightly darker white on hover */
+    text-decoration: none;
+}
+
+/* Style the user legend */
+.legend {
+    font-style: normal;  /* Remove italics */
+}
+
+.legend strong {
+    font-weight: bold;  /* Ensure bold text */
+}
+
+dd.groups {
+    font-style: normal;  /* Remove italics from groups */
+    font-weight: bold;   /* Make groups bold */
+}
+
+/* Legend styling */
+dl.icon dt.legend {
+    font-style: normal !important;  /* Force remove italics */
+}
+
+dl.icon dt.legend strong {
+    font-weight: bold !important;  /* Force bold */
+}
+
+dl.icon dd.posts,
+dl.icon dd.topics,
+dl.icon dd.views,
+dl.icon dd.lastpost,
+dl.icon dd.redirect,
+dl.icon dd.group-rank {
+    font-style: normal !important;  /* Remove italics from all description items */
+    font-weight: bold !important;   /* Make them bold */
+}
+
+/* Legend styling */
+.stat-block.online-list {
+    font-style: normal !important;
+}
+
+.stat-block.online-list strong {
+    font-weight: bold !important;
+}
+
+.stat-block.online-list .legend {
+    font-style: normal !important;
+}
+
+.stat-block.online-list .legend dt {
+    font-style: normal !important;
+    font-weight: bold !important;
+}
+
+.stat-block.online-list .legend dd {
+    font-style: normal !important;
+    font-weight: bold !important;
+}
+
+/* Dropdown menu text colors */
+.dropdown-contents,
+.dropdown .dropdown-contents a,
+.dropdown-extended ul li {
+    color: var(--text-color-2) !important;  /* Darker text color */
+    background-color: var(--bg-web-color);
+}
+
+/* Notification dropdown specific */
+.notification_list .notifications {
+    color: var(--text-color-2) !important;
+}
+
+.notification_list .notifications a {
+    color: var(--links-color) !important;
+}
+
+/* Profile dropdown specific */
+.header-profile .dropdown-contents a {
+    color: var(--text-color-2) !important;
+}
+
+.header-profile .dropdown-contents a:hover {
+    color: var(--links-color-hover-focus) !important;
+    background: var(--bg1-color);
 }
