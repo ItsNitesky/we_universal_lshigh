@@ -3,13 +3,13 @@
 :root {
   --border-radius-big: max(0px, min(4px, calc((100vw - 4px - 100%) * 9999)));
   --border-radius-small: 2px;
-  --inventea-online-bg: #0ead8e;
+  --inventea-online-bg: #4CAF50;
   --inventea-online-border: #0c9076;
   --inventea-text-color: #FFFFFF;
   --row-bg: #fafcfe;
-  --forabg-list: #fafcfe;
+  --forabg-list: #f8f9fa;
   --topiclist: #f1f1f1;
-  --forabg: #009eff;
+  --forabg: #33a5ff;
   --dropdown-extended-header: #FFFFFF;
   --inventea-header: var(--bg-web-color);
   --inventea-userbar: #959595;
@@ -19,29 +19,29 @@
   --color-1: var(--bg-web-color);
   --color-2: #525252;
   --color-3: #242424;
-  --text-color-1: #444444;
-  --text-color-2: #3d3d3d;
+  --text-color-1: #212121;
+  --text-color-2: #424242;
   --text-color-3: #000000;
   --text-color-4: #6b6b6b;
   --text-color-5: #e7e7e7;
   --links-color: #3f3f3f;
   --links-color-hover-focus: #bc2a4d;
   --h2-color: var(--text-color-1);
-  --bg1-color: #f8f8f8;
-  --bg2-color: #f4f4f4;
+  --bg1-color: #ffffff;
+  --bg2-color: #f8f9fa;
   --bg3-color: var(--topiclist);
   --bg4-color: #f2f2f2;
   --bg5-color: #ececec;
   --input-bg: #FFFFFF;
   --input-txt-color: #333333;
-  --border-color-1: #e7e7e7;
+  --border-color-1: #e3e3e3;
   --border-color-2: #525252;
   --border-color-3: #CCCCCC;
   --button-bg: #dfdfdf;
   --reported-bg: #eed9d9;
   --bg-rule: #f2dede;
-  --color-warning: #ffe799;
-  --color-error: #e60a4c;
+  --color-warning: #ffb600;
+  --color-error: #f44336;
   --shadowcolor: #d5d5d5;
 }
 
